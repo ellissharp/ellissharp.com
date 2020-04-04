@@ -1,5 +1,3 @@
-# Error during clone
+# my web site
 
-Cloning https://github.com/ellissharp/ellissharp.com.git failed.
-
-Check the Logs for details.
+By ellis sharp
