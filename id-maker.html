@@ -1,0 +1,131 @@
+<style>
+  * {
+    font-family: sans serif;
+    text-transform: uppercase;
+  }
+  div.outer {
+    border: 2px solid;
+    padding: 8px;
+    width: 320px;
+    margin: 20px auto;
+    overflow: hidden;
+  }
+  img.image1 {
+    height: 60;
+    float: left;
+  }
+  input {
+    border: 0px;
+    border-bottom: 1px dotted;
+  }
+  div.inner {
+    margin-left: 64px;
+  }
+  img.image2 {
+    float: right;
+    height: 60px;
+  }
+  select {
+    border: 1px solid #ccc;
+    cursor: pointer;
+    height: 44px;
+    width: 300px;
+    text-indent: -9999px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+  }
+  select[value="Dark"] {
+    background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2Fone.png?v=1587380806933);
+  }
+  select[value="Silver"] {
+    background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2Ftwo.png?v=1587381912762);
+  }
+  select[value="Thunder"] {
+    background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_20.gif?v=1587381913286);
+  }
+  select[value="Lightning"] {
+    background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_12.gif?v=1587381913421);
+  }
+  select[value="Scorpion"] {
+    background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_09.gif?v=1587381913701);
+  }
+  select[value="Ninja"] {
+    background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_06.gif?v=1587381913983);
+  }
+  select[value="Angel"] {
+    background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_03.gif?v=1587381914242);
+  }
+  select[value="Bolt"] {
+    background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_16.gif?v=1587381914572);
+  }
+</style>
+<div class="outer">
+  <img
+    class="image1"
+    src="https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2Fid-sample%20(1).png?v=1587290341244"
+  />
+  <div class="inner">
+    <p>
+      official identificationcard
+    </p>
+    <p>
+      agent name:
+      <input />
+    </p>
+
+    <p>
+      id.number:
+      <input />
+    </p>
+  </div>
+  <div>
+    <div class="img-upload">
+      <input type="file" accept="image/*" capture="camera" />
+      <img class="image2" src="" />
+    </div>
+    <p>
+      signature:
+      <select value="Dark">
+        <option>Dark</option>
+        <option>Silver</option>
+        <option>Thunder</option>
+        <option>Lightning</option>
+        <option>Scorpion</option>
+        <option>Ninja</option>
+        <option>Angel</option>
+        <option>Bolt</option>
+      </select>
+      <script>
+        document.querySelector("select").onchange = e => {
+          e.target.setAttribute("value", e.target.value);
+        };
+      </script>
+    </p>
+  </div>
+</div>
+
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      alert("reading file");
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        alert("loaded");
+        document
+          .querySelector("img.image2")
+          .setAttribute("src", e.target.result);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  document
+    .querySelector('input[type="file]""')
+    .addEventListener("change", e => {
+      alert("test");
+      readUrl(e.target);
+    });
+</script>
