@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "dependencies": {
+    "glob": "^7.1.6",
+    "marked": "^1.0.0",
+    "serve": "^11.3.0"
+  },
+  "scripts": {
+    "build": "node build-html.js",
+    "prestart": "npm run build",
+    "start": "serve"
+  }
+}

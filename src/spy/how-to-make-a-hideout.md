@@ -26,4 +26,4 @@ You can have a hideout with a high roof and a round middle bit or make it lower 
 
 ## Other bits
 
-You could also have a little nook with lots of pillows and cushions and blankets in or big hideout for your club. if you don't have a club you can still make a hideout
+You could also have a little nook with lots of pillows and cushions and blankets in or big hideout for your club. If you don't have a club you can still make a hideout
