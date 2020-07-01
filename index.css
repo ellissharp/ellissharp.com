@@ -1,13 +1,15 @@
 * {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 html {
-  background: #fafafa;
-  color: #222;
+  background: red;
+  color: white;
 }
 
-body, html, main {
+body,
+html,
+main {
   min-height: 100%;
   margin: 0;
   padding: 0;
@@ -34,7 +36,9 @@ body {
   margin: 20px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
 }
 
@@ -83,12 +87,11 @@ footer {
   text-align: center;
   font-weight: bold;
   align-items: center;
-
 }
 
 #me {
   max-height: 64px;
   object-fit: cover;
   border-radius: 4px;
-  margin-right: 20px
+  margin-right: 20px;
 }
