@@ -95,3 +95,12 @@ footer {
   border-radius: 4px;
   margin-right: 20px;
 }
+
+div {
+  background-color: black;
+  color: aqua;
+}
+
+div > a {
+  color: cyan;
+}
