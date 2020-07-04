@@ -1,8 +1,21 @@
 <style>
   * {
-    font-family: sans serif;
+    font-family: sans-serif;
     text-transform: uppercase;
   }
+
+  /* mirror the video so it looks like a mirror */
+  video {
+    transform: scaleX(-1);
+  }
+
+  button {
+    background: black;
+    color: white;
+    border-radius: 2px;
+    padding: 8px 16px;
+  }
+
   div.outer {
     border: 2px solid;
     padding: 8px;
@@ -10,21 +23,35 @@
     margin: 20px auto;
     overflow: hidden;
   }
+
+  .img-upload {
+    overflow: hidden;
+  }
+
   img.image1 {
     height: 60;
     float: left;
   }
+
   input {
     border: 0px;
     border-bottom: 1px dotted;
   }
+
   div.inner {
     margin-left: 64px;
   }
+
   img.image2 {
     float: right;
-    height: 60px;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    margin: 20px;
+    margin-bottom: 0;
+    border: 1px solid black;
   }
+
   select {
     border: 1px solid #ccc;
     cursor: pointer;
@@ -35,36 +62,42 @@
     background-repeat: no-repeat;
     background-color: white;
   }
+
   select[value="Dark"] {
     background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2Fone.png?v=1587380806933);
   }
+
   select[value="Silver"] {
     background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2Ftwo.png?v=1587381912762);
   }
+
   select[value="Thunder"] {
     background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_20.gif?v=1587381913286);
   }
+
   select[value="Lightning"] {
     background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_12.gif?v=1587381913421);
   }
+
   select[value="Scorpion"] {
     background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_09.gif?v=1587381913701);
   }
+
   select[value="Ninja"] {
     background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_06.gif?v=1587381913983);
   }
+
   select[value="Angel"] {
     background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_03.gif?v=1587381914242);
   }
+
   select[value="Bolt"] {
     background-image: url(https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2F20200420_00002_001_16.gif?v=1587381914572);
   }
 </style>
 <div class="outer">
-  <img
-    class="image1"
-    src="https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2Fid-sample%20(1).png?v=1587290341244"
-  />
+  <img class="image1"
+    src="https://cdn.glitch.com/eec55891-6b61-45df-b5f0-14f6c520fd72%2Fid-sample%20(1).png?v=1587290341244" />
   <div class="inner">
     <p>
       official identificationcard
@@ -82,42 +115,48 @@
   <div>
     <div class="img-upload">
       <button id="capture">Add your face</button>
-      <div hidden class="capture-container">
-        <video id="player" controls autoplay></video>
 
-        <canvas id="canvas" width="320" height="240"></canvas>
+      <img hidden class="image2" src="" />
+
+      <div hidden class="capture-container">
+        <video width="320" height="240" id="player" autoplay></video>
         <script>
           const player = document.getElementById("player");
-          const canvas = document.getElementById("canvas");
+          const canvas = document.createElement("canvas");
+          canvas.width = 320;
+          canvas.height = 240;
+
           const context = canvas.getContext("2d");
           const container = document.querySelector(".capture-container");
           const captureButton = document.getElementById("capture");
           const target = document.querySelector('.image2');
           let capturing = false;
           captureButton.onclick = () => {
-            
+
             if (capturing) {
               capturing = false;
+              context.drawImage(player, 0, 0, canvas.width, canvas.height);
               canvas.toBlob(blob => {
                 const url = URL.createObjectURL(blob);
 
                 target.onload = () => URL.revokeObjectURL(url);
                 target.src = url;
-                container.hidden = capturing;
+                target.hidden = false;
+                container.hidden = true;
+                captureButton.hidden = true;
+                player.srcObject.getTracks()[0].stop()
               });
               return;
             }
-            
-            capturing = !capturing;
 
+            target.hidden = true;
+            container.hidden = false;
+
+            capturing = true;
+            captureButton.textContent="click to save"
             const constraints = {
               video: true
             };
-
-            captureButton.addEventListener("click", () => {
-              // Draw the video frame to the canvas.
-              context.drawImage(player, 0, 0, canvas.width, canvas.height);
-            });
 
             // Attach the video stream to the video element and autoplay.
             navigator.mediaDevices.getUserMedia(constraints).then(stream => {
@@ -126,8 +165,6 @@
           };
         </script>
       </div>
-
-      <img class="image2" src="" />
     </div>
     <p>
       signature:
@@ -149,3 +186,6 @@
     </p>
   </div>
 </div>
+<button onclick="window.print?()">
+  Print your ID
+</button>
