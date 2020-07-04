@@ -81,7 +81,52 @@
   </div>
   <div>
     <div class="img-upload">
-      <input type="file" accept="image/*" capture="camera" />
+      <button id="capture">Add your face</button>
+      <div hidden class="capture-container">
+        <video id="player" controls autoplay></video>
+
+        <canvas id="canvas" width="320" height="240"></canvas>
+        <script>
+          const player = document.getElementById("player");
+          const canvas = document.getElementById("canvas");
+          const context = canvas.getContext("2d");
+          const container = document.querySelector(".capture-container");
+          const captureButton = document.getElementById("capture");
+          const target = document.querySelector('.image2');
+          let capturing = false;
+          captureButton.onclick = () => {
+            
+            if (capturing) {
+              capturing = false;
+              canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+
+                target.onload = () => URL.revokeObjectURL(url);
+                target.src = url;
+                container.hidden = capturing;
+              });
+              return;
+            }
+            
+            capturing = !capturing;
+
+            const constraints = {
+              video: true
+            };
+
+            captureButton.addEventListener("click", () => {
+              // Draw the video frame to the canvas.
+              context.drawImage(player, 0, 0, canvas.width, canvas.height);
+            });
+
+            // Attach the video stream to the video element and autoplay.
+            navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+              player.srcObject = stream;
+            });
+          };
+        </script>
+      </div>
+
       <img class="image2" src="" />
     </div>
     <p>
@@ -104,28 +149,3 @@
     </p>
   </div>
 </div>
-
-<script>
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      alert("reading file");
-      var reader = new FileReader();
-
-      reader.onload = function(e) {
-        alert("loaded");
-        document
-          .querySelector("img.image2")
-          .setAttribute("src", e.target.result);
-      };
-
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-
-  document
-    .querySelector('input[type="file]""')
-    .addEventListener("change", e => {
-      alert("test");
-      readUrl(e.target);
-    });
-</script>
