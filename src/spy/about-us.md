@@ -1,8 +1,5 @@
 ## ABOUT US
 
-- Counter Terrorism – stopping terrorist attacks in the UK, against our interests overseas, and supporting our allies
-- Disrupting Hostile State Activity – tackling threats from hostile and malign states, promoting the UK’s prosperity and influencing international affairs
-- Cyber - promoting and defending the UK’s cyber realm and using our cyber expertise to reduce threats.
 
 We work secretly overseas to gather intelligence from people and organisations. Our work is often referred to as 'espionage' or 'spying'. It has to be done in secret to protect our staff, our agents, our technology and ultimately the UK. 'Agents' are individuals who choose to help us collect intelligence.
 
