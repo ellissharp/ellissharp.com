@@ -3,7 +3,7 @@
 }
 
 html {
-  background: red;
+  background: black;
   color: white;
 }
 
@@ -43,7 +43,7 @@ h3 {
 }
 
 main {
-  font-size: 2vw;
+  font-size: 24px;
   max-width: 70ch;
   margin: 0 auto;
   /* padding-left: 10vw;
@@ -55,13 +55,13 @@ main {
 }
 
 a {
-  color: #000;
+  color: cyan;
   font-weight: 600;
 }
 
 a:hover {
   text-decoration: underline;
-  color: hotpink;
+  color: cyan;
 }
 
 #home ul {
@@ -98,9 +98,30 @@ footer {
 
 div {
   background-color: black;
-  color: aqua;
+  color: red;
 }
 
 div > a {
   color: cyan;
+}
+
+.links {
+  background: #00008B
+;
+  padding: 16px;
+}
+
+.links h2 {
+  text-align: left;
+}
+
+#home .links ul {
+  margin:0;
+  padding: 0px;
+  column-count:2;
+  
+}
+
+#home .links ul li {
+  margin: 8px 0px; 
 }
