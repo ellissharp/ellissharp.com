@@ -1,10 +1,25 @@
 * {
   font-family: "IBM Plex Mono", monospace;
+  box-sizing: border-box;
 }
 
 html {
-  background: black;
+  background: green;
   color: white;
+  background-image: url(https://cdn.glitch.com/cfafd7b8-0f01-442b-9540-6176597f229c%2Fmc-sword.png?v=1608372535835), url(https://cdn.glitch.com/cfafd7b8-0f01-442b-9540-6176597f229c%2FMinecraft-Pickaxe-diamond.png?v=1608372994331);
+  background-repeat: repeat-y;
+  background-size: 30%;
+  background-position: -200px 0px, 145% 0;
+}
+
+html:xbefore {
+  content: '';
+  background-image: url(https://cdn.glitch.com/cfafd7b8-0f01-442b-9540-6176597f229c%2Fmc-sword.png?v=1608372535835);
+  width: 33%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 
 body,
@@ -16,9 +31,13 @@ main {
 }
 
 #home body {
+  background: black;
+/*   opacity: 0.2; */
   flex-direction: column;
   display: flex;
   align-items: flex-start;
+  padding:16px;
+  margin:0;
 }
 
 #home main {
@@ -68,12 +87,12 @@ a:hover {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 #home li {
   /* text-align: center; */
-  margin: 3rem 0;
+  margin: 1rem 0;
 }
 
 footer {
@@ -109,6 +128,7 @@ div > a {
   background: #00008B
 ;
   padding: 16px;
+  width:100%;
 }
 
 .links h2 {
