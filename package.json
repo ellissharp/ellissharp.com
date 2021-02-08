@@ -2,7 +2,7 @@
   "private": true,
   "dependencies": {
     "glob": "^7.1.6",
-    "marked": "^1.0.0",
+    "marked": "^2.0.0",
     "serve": "^11.3.0"
   },
   "scripts": {
