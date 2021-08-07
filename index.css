@@ -6,14 +6,17 @@
 html {
   background: green;
   color: white;
-  background-image: url(https://cdn.glitch.com/cfafd7b8-0f01-442b-9540-6176597f229c%2Fmc-sword.png?v=1608372535835), url(https://cdn.glitch.com/cfafd7b8-0f01-442b-9540-6176597f229c%2FMinecraft-Pickaxe-diamond.png?v=1608372994331);
+  background-image: url(
+      https://cdn.glitch.com/cfafd7b8-0f01-442b-9540-6176597f229c%2Fmc-sword.png?v=1608372535835
+    ),
+    url(https://cdn.glitch.com/cfafd7b8-0f01-442b-9540-6176597f229c%2FMinecraft-Pickaxe-diamond.png?v=1608372994331);
   background-repeat: repeat-y;
   background-size: 30%;
   background-position: -200px 0px, 145% 0;
 }
 
 html:xbefore {
-  content: '';
+  content: "";
   background-image: url(https://cdn.glitch.com/cfafd7b8-0f01-442b-9540-6176597f229c%2Fmc-sword.png?v=1608372535835);
   width: 33%;
   position: absolute;
@@ -32,12 +35,12 @@ main {
 
 #home body {
   background: black;
-/*   opacity: 0.2; */
+  /*   opacity: 0.2; */
   flex-direction: column;
   display: flex;
   align-items: flex-start;
-  padding:16px;
-  margin:0;
+  padding: 16px;
+  margin: 0;
 }
 
 #home main {
@@ -125,10 +128,9 @@ div > a {
 }
 
 .links {
-  background: #00008B
-;
+  background: #00008B;
   padding: 16px;
-  width:100%;
+  width: 100%;
 }
 
 .links h2 {
@@ -136,12 +138,11 @@ div > a {
 }
 
 #home .links ul {
-  margin:0;
+  margin: 0;
   padding: 0px;
-  column-count:2;
-  
+  column-count: 2;
 }
 
 #home .links ul li {
-  margin: 8px 0px; 
+  margin: 8px 0px;
 }
